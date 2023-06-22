@@ -27,32 +27,33 @@ namespace Disconnected_Environment
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            nmp.Enabled = true;
+            dataGriedView1.Enabled = true;
             btnSave.Enabled = true;
             btnClear.Enabled = true;
         }
 
-        
+
         private void button3_Click(object sender, EventArgs e)
         {
             string nmProdi = nmp.Text;
+            string idProdi = idp.Text;
 
             if (nmProdi == "")
             {
-                MessageBox.Show("Masukkan Nama Prodi", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Masukan Nama Prodi", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 koneksi.Open();
-                string str = "insert Into dbo.Prodi (nama_prodi" + "values(@id)";
+                string str = "insert into dbo.Prodi (id_prodi,nama_prodi)" + "values(@id_prodi, @nama_prodi)";
                 SqlCommand cmd = new SqlCommand(str, koneksi);
                 cmd.CommandType = CommandType.Text;
-                cmd.Parameters.Add(new SqlParameter("id", nmProdi));
+                cmd.Parameters.Add(new SqlParameter("id_prodi", idProdi));
+                cmd.Parameters.Add(new SqlParameter("nama_prodi", nmProdi));
                 cmd.ExecuteNonQuery();
 
                 koneksi.Close();
-                MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.
-                    Information);
+                MessageBox.Show("Data Berhasil Disimpan", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dataGridView();
                 refreshform();
             }
@@ -69,8 +70,8 @@ namespace Disconnected_Environment
         }
         private void refreshform()
         {
-            nmp.Text = "";
-            nmp.Enabled = false;
+            dataGriedView1.Text = "";
+            dataGriedView1.Enabled = false;
             btnSave.Enabled = false;
             btnClear.Enabled = false;
         }
@@ -83,7 +84,7 @@ namespace Disconnected_Environment
             SqlDataAdapter da = new SqlDataAdapter(str, koneksi);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            nmp.DataSource = ds.Tables[0];
+            dataGriedView1.DataSource = ds.Tables[0];
             koneksi.Close();
         }
 
@@ -96,6 +97,26 @@ namespace Disconnected_Environment
             FormHalamanUtama hu = new FormHalamanUtama();
             hu.Show();
             this.Hide();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nmProdi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -53,6 +53,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(547, 223);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
@@ -89,6 +90,7 @@
             this.label4.Size = new System.Drawing.Size(88, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Tahun Masuk";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // cbxNama
             // 
@@ -106,6 +108,7 @@
             this.cbxStatusMahasiswa.Name = "cbxStatusMahasiswa";
             this.cbxStatusMahasiswa.Size = new System.Drawing.Size(121, 24);
             this.cbxStatusMahasiswa.TabIndex = 6;
+            this.cbxStatusMahasiswa.SelectedIndexChanged += new System.EventHandler(this.cbxStatusMahasiswa_SelectedIndexChanged);
             // 
             // cbxTahunMasuk
             // 
@@ -114,6 +117,7 @@
             this.cbxTahunMasuk.Name = "cbxTahunMasuk";
             this.cbxTahunMasuk.Size = new System.Drawing.Size(121, 24);
             this.cbxTahunMasuk.TabIndex = 7;
+            this.cbxTahunMasuk.SelectedIndexChanged += new System.EventHandler(this.cbxTahunMasuk_SelectedIndexChanged);
             // 
             // txtNIM
             // 
