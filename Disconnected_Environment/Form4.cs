@@ -187,7 +187,7 @@ namespace Disconnected_Environment
         {
             FormHalamanUtama fm = new FormHalamanUtama();
             fm.Show();
-            this.Hide()
+            this.Hide();
         }
     }
 
